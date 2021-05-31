@@ -7,37 +7,40 @@
 
 $testo = "Welcome PHP";
 
+$badword = array_key_exists("badword", $_GET) ? $_GET["badword"] : '';
 
-// echo '<pre>' , var_dump($_GET) , '</pre>';
-
-
-// echo strlen($testo);
+$testoModificato = str_replace($badword, "***", $testo);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-<p><?php echo $testo ?>
-<br>
-Lunghezza della stringa: <?php echo strlen($testo) ?>
-<br>
-Sostituisco il testo con i tre (*):
-<?php echo str_replace("Welcome PHP", "***", $testo); ?>
-</p>
-    
+    <p>
+        <?php
+        echo $testo;
+        echo "<br>";
+        echo strlen($testo)
+        ?>
+    </p>
+
+    <p>
+        <?php
+        echo $testoModificato;
+        echo "<br>";
+        echo strlen($testoModificato);
+        ?>
+    </p>
+
 </body>
+
 </html>
-
-
-
-
-
-
